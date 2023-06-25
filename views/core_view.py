@@ -12,7 +12,7 @@ from .sub_centros_custo import sub_centros_custo_bp
 from .clientes import clientes_bp
 from .tipos_documento import tipos_documento_bp
 from .cargo_acessos import cargo_acessos_bp
-from ..modules.auth import auth_bp
+from modules.auth import auth_bp
 
 # criação das Blueprints da API: app e v2
 app_bp = Blueprint("app", __name__, url_prefix="/app")

@@ -1,15 +1,15 @@
 from sqlalchemy import create_engine, URL, MetaData
 from dotenv import load_dotenv, dotenv_values
+import os
 
 load_dotenv()
-config = dotenv_values(".env")
 
 url_object = URL.create(
     "mysql",
-    username=config['DB_USERNAME'],
-    password=config['DB_PASSWORD'],
-    host=config['DB_HOSTNAME'],
-    database=config['DB_DATABASE']
+    username=os.environ.get('DB_ROOT'),
+    password=os.environ.get('DB_ROOT_PASSWORD'),
+    host=os.environ.get('DB_HOSTNAME'),
+    database=os.environ.get('DB_DATABASE')
 )
 
 engine = create_engine(url_object, echo=True)

@@ -3,11 +3,15 @@ def create_app(testing: bool = True):
     from flask import Flask, g, jsonify
     from flask_cors import CORS
     from datetime import datetime, timedelta, timezone
-    import pymysql
-    pymysql.install_as_MySQLdb()
-    from .modules.config import define_app_secret
-    from .views.core_view import app_bp
+    import pymysql, sys, os
+
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(os.path.dirname(SCRIPT_DIR))
     
+    pymysql.install_as_MySQLdb()
+    from modules import define_app_secret
+    from views.core_view import app_bp
+
     app = Flask(__name__)
     CORS(app)
     jwt = JWTManager(app)
@@ -61,7 +65,3 @@ def signature_verification_failed(e):
         "msg":"Token inválido! Verifique sua assinatura."
         })
 
-application = create_app(True)
-
-if __name__ == '__main__':
-    application.run()

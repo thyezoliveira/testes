@@ -1,4 +1,3 @@
-bcrypt
 blinker
 certifi
 charset-normalizer

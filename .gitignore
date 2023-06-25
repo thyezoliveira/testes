@@ -1,2 +1,27 @@
-venv
+.vscode
+
+# Arquivos e diretórios específicos do Flask
+__pycache__/
+instance/
+*.pyc
+*.pyo
+*.pyd
+
+# Ambiente virtual Python
+venv/
 .env
+
+# Dependências e pacotes Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Arquivos de log
+*.log
+
+# Arquivos de configuração
+*.ini
+
+# Outros arquivos
+.DS_Store
